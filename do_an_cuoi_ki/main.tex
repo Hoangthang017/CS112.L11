@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage[utf8]{vietnam}
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\arabic{subsection}}
+\usepackage[top=3.5cm, bottom=3.0cm, left=3.5cm, right=2.0cm]{geometry}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\title{BÀI BÁO CÁO MÔN PHÂN TÍCH VÀ THIẾT KẾ THUẬT TOÁN}
+% \date{January 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Giới thiệu bài toán:}
+\subsection{Mô tả:}
+\setlength{\parindent}{18pt}
+Bài toán đường đi ngắn nhất của tất cả các cặp đỉnh là bài toán tìm một đường đi giữa cho tất cả các cặp đỉnh sao cho tổng các trọng số của các cạnh tạo nên đường đi đó là nhỏ nhất. Cho trước một đồ thị có trọng số (nghĩa là một tập đỉnh $V$, một tập cạnh $E$, và một hàm trong số có giá trị thực $f : E$ → $\mathbb{R}$), xét tất cả đỉnh $v$ thuộc $V$, tìm một đường đi $P$ từ $v$ tới mỗi đỉnh $v'$ thuộc $V$ sao cho:
+\newline
+$$\displaystyle \sum_{p\in P}(f(p))$$
+\newline
+là nhỏ nhất trong tất cả các đường nối từ $v$ tới $v'$. 
+\subsection{Lịch sử:}
+\begin{itemize}
+\item Rất khó để truy ngược lịch sử của bài toán tim đường đi ngắn nhất của tất cả các cặp đỉnh.
+\item So với các bài toán tối ưu hóa tổ hợp khác: như cây bao trùm nhỏ nhất, bài toán vận chuyển, việc nghiên cứu toán học trong bài toán đường đi ngắn nhất bắt đầu khá muộn.
+\item Các phương pháp tiếp cận không tối ưu đã được nghiên cứu như: Rosenfeld [1956], người đã đưa ra phương pháp phỏng đoán để xác định một tuyến đường vận tải đường bộ tối ưu thông qua một mô hình tắc nghẽn giao thông nhất định.
+\item Việc tìm đường đi, đặc biệt là tìm kiếm trong mê cung, thuộc về các bài toán đồ thị cổ điển, và các tài liệu tham khảo cổ điển là Wiener [1873], Lucas [1882] (mô tả một phương pháp do CP Trémaux), và Tarry [1895] - xem Biggs, Lloyd và Wilson [1976]. Chúng tạo cơ sở cho các kỹ thuật tìm kiếm theo chiều sâu.
+\item Các vấn đề về đường đi cũng được nghiên cứu vào đầu những năm 1950 trong bối cảnh 'định tuyến thay thế', tức là tìm đường ngắn thứ hai nếu đường ngắn nhất bị chặn. Điều này áp dụng cho việc sử dụng đường cao tốc (Trueblood [1952]), cũng như định tuyến cuộc gọi điện thoại.
+\end{itemize}
+\subsection{Ứng dụng:}
+\begin{itemize}
+\item Ứng dụng trong viễn thông, bài toán đường đi ngắn nhất đôi khi được gọi là bài toán đường đi có độ trễ nhỏ nhất (min-delay path problem) và thường được gắn với một bài toán đường đi rộng nhất (widest path problem). ví dụ đường đi rộng nhất trong các đường đi ngắn nhất (độ trễ nhỏ nhất) hay đường đi ngắn nhất trong các đường đi rộng nhất.
+\item Kết hợp với bản đồ số.
+\item Ứng dụng trong bài toán xe buýt.
+\item Ứng dụng tron bài toán taxi.
+\end{itemize}
+\subsection{Đề bài liên hệ với bản thân:}
+Bài toán tìm đường đi đến mấy chỗ giao hàng sao cho tốn ít chi phí nhất:
+\begin{itemize}
+\item Em đang thực hiện việc bán hàng online (tai nghe, chuột , cáp sạc), mọi người thường chọn mặt hàng mua sau đó gửi thông tin liên lạc gồm tên , số điện thoại , địa chỉ để em chốt đơn. Vì là sinh viên nghèo nên em không thể công tác với các công ty vận chuyển được mà phải tự mình đi giao hàng.
+\item Vào một ngày đẹp trời, em đang đi giao hàng cho khách. hôm nay, em phải giao 8 đơn hàng. Trước khi đi, em đã tính xem đi giao lần lượt những đơn nào là tối ưu nhất để có tiết kiệm thời gian và xăng. Tuy nhiên , khi đi giao đến bạn thứ 3 em lại nhận ra mình đã bỏ quên 1 gói hàng của bạn thứ 7 ở nhà. Việc này làm kế hoạch ban đầu bị rối loạn. em phải suy nghĩ xem, ở địa điểm hiện tại có đường nào có thể giao các đơn tiếp theo mà có thể ghé ngang nhà lấy hàng để giao cho bạn thứ 7 không.
+\item Chính vì thế em cay cú, đã tìm hiểu trên mạng và thấy có thuật toán Floyd-Warshall có thể tính được tất cả đường đi giữa tất cả các địa điểm với nhau sao cho nó là ngắn nhất. Em đã cài đặt để sau này gặp trường hợp tương tự em chỉ cần lấy kết quả đã tính trước khi đi ra để xem ở địa điểm hiện tại con đường nào là tối ưu nhất để em có thể ghé nhà.
+\end{itemize}
+\section{Ý tưởng thiết kế cho bài toán:}
+\subsection{Dẫn nguồn và lịch sử phát triển thuật toán:}
+\subsubsection{Dẫn nguồn:}
+    \begin{itemize}
+        \begin{itemize}
+            \item Khái niệm, lịch sử, mã giả và chi tiết về thuật toán Floyd-warshall được tham khảo trên WikipediA https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm . \\ \hline
+            \item Source code được tham khảo trên Techie Delight -  https://www.techiedelight.com/pairs-shortest-paths-floyd-warshall-algorithm/?fbc 
+        \end{itemize}
+    \end{itemize}
+\subsubsection{Lịch sử phát triển:}
+    \begin{itemize}
+        \begin{itemize}
+            \item Thuật toán Floyd – Warshall là một ví dụ về lập trình động, và được Robert Floyd công bố và được công nhận vào năm 1962. 
+            \item Về cơ bản, nó giống với các thuật toán được Bernard Roy công bố trước đó vào năm 1959 và cũng bởi Stephen Warshall vào năm 1962 để tìm ra điểm bắc cầu của một đồ thị, và có liên quan chặt chẽ với thuật toán của Kleene (đã xuất bản vào năm 1956) để chuyển đổi một automaton hữu hạn xác định thành một biểu thức chính quy.
+            \item Công thức hiện tại của thuật toán dưới dạng ba vòng for lồng nhau lần đầu tiên được Peter Ingerman mô tả vào năm 1962.
+        \end{itemize}
+    \end{itemize}
+\subsection{Phương pháp đã dùng để thiết kế:}
+\subsection{Mã giả:}
+Cho dist là một $|V|$ × $|V|$ mảng khoảng cách được tạo thành từ $\infty$.
+    \noindent 
+    
+    for mỗi cạnh (u, v):
+\hangindent=1cm
+\newline
+    dist[u][v] = w(u, v)  // Trọng số của cạnh (u, v)
+\noindent
+
+for mỗi vertex v:
+\hangindent=1cm
+\newline
+    dist[v][v] ← 0
+\noindent
+
+for k in range(1, |V|)
+\hangindent=1cm
+\newline
+for i fin range(1, |V|)
+
+\setlength{\parindent}{40pt}
+for j in range(1, |V|)
+
+\setlength{\parindent}{50pt}
+            if dist[i][j] > dist[i][k] + dist[k][j]:
+\setlength{\parindent}{60pt}
+
+                dist[i][j] = dist[i][k] + dist[k][j]
+
+
+\subsection{Phân tích độ phức tạp bằng phương pháp toán học:}
+\subsection{Mã nguồn cài đặt:}
+\subsection{Cách thức phát sinh Input/Output đã dùng để kiểm tra tính đúng đắn của cài đặt:}
+\subsection{Phân tích độ phức tạp bằng cài đặt:}
+\end{document}
