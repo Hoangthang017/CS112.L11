@@ -1,0 +1,6 @@
+liên hệ bản thân:
+Em đang thực hiện việc bán hàng online (tai nghe, chuột , cáp sạc), mọi người thường chọn mặt hàng mua sau đó gửi thông tin liên lạc gồm tên , số điện thoại , địa chỉ để em chốt đơn. Vì là sinh viên nghèo nên em không thể công tác với các công ty vận chuyển được mà phải tự mình đi giao hàng.
+
+Vào một ngày đẹp trời, em đang đi giao hàng cho khách. hôm nay, em phải giao 8 đơn hàng. Trước khi đi, em đã tính xem đi giao lần lượt những đơn nào là tối ưu nhất để có tiết kiệm thời gian và xăng. Tuy nhiên , khi đi giao đến bạn thứ 3 em lại nhận ra mình đã bỏ quên 1 gói hàng của bạn thứ 7 ở nhà. Việc này làm kế hoạch ban đầu bị rối loạn. em phải suy nghĩ xem, ở địa điểm hiện tại có đường nào có thể giao các đơn tiếp theo mà có thể ghé ngang nhà lấy hàng để giao cho bạn thứ 7 không.
+
+Chính vì thế em cay cú, đã tìm hiểu trên mạng và thấy có thuật toán Floyd-Warshall có thể tính được tất cả đường đi giữa tất cả các địa điểm với nhau sao cho nó là ngắn nhất. Em đã cài đặt để sau này gặp trường hợp tương tự em chỉ cần lấy kết quả đã tính trước khi đi ra để xem ở địa điểm hiện tại con đường nào là tối ưu nhất để em có thể ghé nhà.
